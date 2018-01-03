@@ -74,7 +74,6 @@ module.exports = {
             .clearValue(selectors.enterWanted.hdr)
             .setValue(selectors.enterWanted.hdr, data.badData.input.hdr)
             .verify.value(selectors.enterWanted.hdr, data.badData.input.hdr)
-          
             .clearValue(selectors.enterWanted.mke)
             .setValue(selectors.enterWanted.mke, data.badData.input.mke)
             .verify.value(selectors.enterWanted.mke, data.badData.input.mke)
@@ -114,6 +113,63 @@ module.exports = {
         browser.click(selectors.enterWanted.clear)
           
     },
+
+    'testing bad data for input fields Wanted Queries Enter Wanted Error list present': browser => {
+        browser
+            .waitForElementVisible(selectors.enterWanted.entrWnt, 1000)
+            .click(selectors.enterWanted.entrWnt)
+
+            
+            .clearValue(selectors.enterWanted.hdr)
+            .setValue(selectors.enterWanted.hdr, data.badData.input.hdr)
+            .verify.value(selectors.enterWanted.hdr, data.badData.input.hdr)
+            .clearValue(selectors.enterWanted.mke)
+            .setValue(selectors.enterWanted.mke, data.badData.input.mke)
+            .verify.value(selectors.enterWanted.mke, data.badData.input.mke)
+            .clearValue(selectors.enterWanted.ori)
+            .setValue(selectors.enterWanted.ori, data.badData.input.oai)
+            .verify.value(selectors.enterWanted.ori, data.badData.input.oai)
+            .clearValue(selectors.enterWanted.nam)
+            .setValue(selectors.enterWanted.nam, data.badData.input.nam)
+            .verify.value(selectors.enterWanted.nam, data.badData.input.nam)
+            .clearValue(selectors.enterWanted.sex)
+            .setValue(selectors.enterWanted.sex, data.badData.input.sex)
+            .verify.value(selectors.enterWanted.sex, data.badData.input.sex)
+            // .clearValue(selectors.enterWanted.rac)
+            // .setValue(selectors.enterWanted.rac, data.badData.input.rac)
+            // .verify.value(selectors.enterWanted.rac, data.badData.input.rac)
+            // .clearValue(selectors.enterWanted.heig)
+            // .setValue(selectors.enterWanted.heig, data.badData.input.hgt)
+            // .verify.value(selectors.enterWanted.heig, data.badData.input.hgt)
+            // .clearValue(selectors.enterWanted.wiig)
+            // .setValue(selectors.enterWanted.wiig, data.badData.input.wgt)
+            // .verify.value(selectors.enterWanted.wiig, data.badData.input.wgt)
+            // .clearValue(selectors.enterWanted.hair)
+            // .setValue(selectors.enterWanted.hair, data.badData.input.hai)
+            // .verify.value(selectors.enterWanted.hair, data.badData.input.hai) // it should throw out error message but does not, bug has been reported restest after bug fixed
+            // .clearValue(selectors.enterWanted.offns)
+            // .setValue(selectors.enterWanted.offns, data.badData.input.off)
+            // .verify.value(selectors.enterWanted.offns, data.badData.input.off)
+            // .clearValue(selectors.enterWanted.dowv)
+            // .setValue(selectors.enterWanted.dowv, data.badData.input.dow)
+            // .verify.value(selectors.enterWanted.dowv, data.badData.input.dow)
+           
+
+            .click(selectors.enterWanted.submit)
+            browser.expect.element(selectors.errorList.errorList1).text.to.contain(data.badData.errorList.hdr)
+            browser.expect.element(selectors.errorList.errorList1).text.to.contain(data.badData.errorList.mke)
+            browser.expect.element(selectors.errorList.errorList1).text.to.contain(data.badData.errorList.oai)
+            browser.expect.element(selectors.errorList.errorList1).text.to.contain(data.badData.errorList.nam)
+            browser.expect.element(selectors.errorList.errorList1).text.to.contain(data.badData.errorList.sex)
+            // browser.expect.element(selectors.errorList.errorList1).text.to.contain(data.badData.errorList.rac)
+            // browser.expect.element(selectors.errorList.errorList1).text.to.contain(data.badData.errorList.hgt)
+            // browser.expect.element(selectors.errorList.errorList1).text.to.contain(data.badData.errorList.off)
+
+
+
+    },
+
+
 
     'testing blank space for all input fields Wanted Queries Enter Wanted': browser => {
         browser

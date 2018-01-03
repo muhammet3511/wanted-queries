@@ -22,9 +22,12 @@ module.exports = {
        textBlobTitle: 'span[name="queryTitle"]',
        textBlobText: 'span[name="queryBody"]',
        entrWnt: 'a[href="#/enter"]',
-       
-      
     },
+       
+      errorList: {
+           errorList1: 'ul[id="errorList"]'
+      },
+    
     modifyWanted: {
         modifyWanted1: 'a[href="#/modify"]',
         warrantID: 'input[name="widInput"]'
